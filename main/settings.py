@@ -11,12 +11,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = config('SECRET_KEY')
 SECRET_KEY = 'django-insecure-djcsy%!)!sntxk0+v7onqg2$*@e3s3lc)(!@n--7eo^kus33!4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['student100.herokuapp.com',]
+ALLOWED_HOSTS = ['student100.herokuapp.com', '127.0.0.1', ]
 
 # Application definition
 
@@ -110,6 +111,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_pro')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+django_on_heroku.settings(locals())
 
 
 # Default primary key field type
